@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- test -->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recomiéndame una canción</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <style>
     :root {
       --primary-green: #2ecc71;
@@ -29,7 +28,7 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--light-gray);
       color: var(--dark-gray);
       line-height: 1.6;
@@ -48,7 +47,6 @@
       align-items: center;
       padding: 2rem;
       background: var(--gradient-green);
-      background-size: 200% 200%;
       animation: gradientShift 15s ease infinite;
     }
 
@@ -107,9 +105,8 @@
       content: "";
       position: absolute;
       bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
+      left: 0;
+      width: 100%;
       height: 4px;
       background: var(--gradient-green);
       border-radius: 2px;
@@ -131,7 +128,7 @@
       font-size: 1rem;
       background: var(--light-gray);
       transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     #song-input:focus {
@@ -148,12 +145,11 @@
       cursor: pointer;
       transition: var(--transition);
       font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     .song-form button:hover {
       background: var(--gradient-dark);
-      transform: translateY(-2px);
     }
 
     #track-status {
@@ -164,19 +160,6 @@
       background-color: var(--light-gray);
       text-align: center;
       font-weight: 500;
-      transition: var(--transition);
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     #track-info {
@@ -186,40 +169,13 @@
       background-color: var(--light-gray);
       position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    #track-info img {
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    #track-info img:hover {
-      transform: scale(1.05);
-    }
-
-    #track-info p {
-      font-weight: 500;
-      margin: 0.5rem 0;
-      color: var(--dark-green);
     }
 
     #progress-bar-container {
       width: 100%;
       background-color: var(--medium-gray);
       height: 10px;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       border-radius: 5px;
       overflow: hidden;
       position: relative;
@@ -231,61 +187,17 @@
       width: 0%;
       border-radius: 5px;
       transition: width 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
 
-    #progress-bar::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      animation: shimmer 2s infinite;
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    /* Estilo para el elemento progress nativo */
-    #track-info progress {
-      width: 100%;
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      appearance: none;
-      border: none;
-    }
-
-    #track-info progress::-webkit-progress-bar {
-      background-color: var(--medium-gray);
-      border-radius: 5px;
-    }
-
-    #track-info progress::-webkit-progress-value {
-      background: var(--gradient-green);
-      border-radius: 5px;
-      position: relative;
-      transition: width 0.3s ease;
-    }
-
-    #track-info progress::-moz-progress-bar {
-      background: var(--gradient-green);
-      border-radius: 5px;
+    #time-counter {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--dark-gray);
     }
 
     #search-results {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 1rem;
       max-height: 400px;
       overflow-y: auto;
@@ -300,16 +212,6 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: var(--transition);
-      animation: slideIn 0.5s ease forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .song:hover {
@@ -318,36 +220,42 @@
     }
 
     .song img {
-      width: 64px;
-      height: 64px;
+      width: 60px;
+      height: 60px;
       border-radius: 8px;
       object-fit: cover;
       margin-right: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .song p {
+    .song-info {
       flex: 1;
-      font-weight: 500;
-      margin: 0;
+    }
+
+    .song-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--dark-gray);
+    }
+
+    .song-artist {
+      font-size: 0.9rem;
+      color: #666;
     }
 
     .song button {
-      background: var(--gradient-green);
-      color: var(--white);
+      background: var(--light-green);
+      color: var(--dark-green);
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 50px;
       cursor: pointer;
       font-weight: 600;
       transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
     }
 
     .song button:hover {
-      background: var(--gradient-dark);
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: var(--primary-green);
+      color: var(--white);
     }
 
     footer {
@@ -358,26 +266,6 @@
       font-size: 0.9rem;
     }
 
-    /* Scrollbar styling */
-    #search-results::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    #search-results::-webkit-scrollbar-track {
-      background: var(--light-gray);
-      border-radius: 4px;
-    }
-
-    #search-results::-webkit-scrollbar-thumb {
-      background: var(--primary-green);
-      border-radius: 4px;
-    }
-
-    #search-results::-webkit-scrollbar-thumb:hover {
-      background: var(--secondary-green);
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .content {
         padding: 1.5rem;
@@ -401,7 +289,6 @@
       .song {
         flex-direction: column;
         text-align: center;
-        padding: 1.5rem;
       }
 
       .song img {
@@ -409,8 +296,8 @@
         margin-bottom: 1rem;
       }
 
-      .song p {
-        margin-bottom: 1rem;
+      .song button {
+        margin-top: 1rem;
       }
     }
   </style>
@@ -438,6 +325,7 @@
           <div id="progress-bar-container">
             <div id="progress-bar"></div>
           </div>
+          <div id="time-counter">0:00 / 0:00</div>
         </div>
         
         <div id="search-results">
