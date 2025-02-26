@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recomiéndame una canción</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <style>
     :root {
       --primary-green: #2ecc71;
@@ -28,16 +28,36 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--light-gray);
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-gray);
       color: var(--dark-gray);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .container {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      position: relative;
+    }
+
+    .animated-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #1abc9c, #2ecc71, #3498db, #9b59b6);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .content-wrapper {
@@ -46,26 +66,55 @@
       justify-content: center;
       align-items: center;
       padding: 2rem;
-      background: var(--gradient-green);
-      background-size: 200% 200%;
-      animation: gradientShift 15s ease infinite;
+      position: relative;
+      overflow: hidden;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .content-wrapper::before,
+    .content-wrapper::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .content-wrapper::before {
+      top: -100px;
+      left: -100px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .content-wrapper::after {
+      bottom: -100px;
+      right: -100px;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(20px, -20px); }
     }
 
     .content {
       width: 100%;
       max-width: 800px;
-      background: var(--white);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 20px;
       padding: 2.5rem;
-      box-shadow: var(--shadow);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       position: relative;
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 48px rgba(31, 38, 135, 0.5);
     }
 
     .content::before {
@@ -86,10 +135,17 @@
     }
 
     .logo svg {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       margin-right: 15px;
       fill: var(--primary-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     h1 {
@@ -97,9 +153,18 @@
       text-align: center;
       margin-bottom: 2rem;
       font-weight: 700;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       position: relative;
       display: inline-block;
+      background: var(--gradient-green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -100% 0; }
+      100% { background-position: 100% 0; }
     }
 
     h1::after {
@@ -118,9 +183,15 @@
       display: flex;
       margin-bottom: 2rem;
       position: relative;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       border-radius: 50px;
       overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .song-form:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
     }
 
     #song-input {
@@ -130,7 +201,7 @@
       font-size: 1rem;
       background: var(--light-gray);
       transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     #song-input:focus {
@@ -147,12 +218,29 @@
       cursor: pointer;
       transition: var(--transition);
       font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
     }
 
-    .song-form button:hover {
-      background: var(--gradient-dark);
-      transform: translateY(-2px);
+    .song-form button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: all 0.6s;
+    }
+
+    .song-form button:hover::before {
+      left: 100%;
     }
 
     #track-status {
@@ -160,14 +248,15 @@
       margin-bottom: 1rem;
       padding: 1rem;
       border-radius: 10px;
-      background-color: var(--light-gray);
+      background-color: rgba(255, 255, 255, 0.7);
       text-align: center;
       font-weight: 500;
       transition: var(--transition);
-      animation: fadeIn 0.5s ease forwards;
+      animation: fadeInUp 0.5s ease forwards;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(20px);
@@ -182,13 +271,20 @@
       margin-bottom: 2rem;
       padding: 1.5rem;
       border-radius: 10px;
-      background-color: var(--light-gray);
+      background-color: rgba(255, 255, 255, 0.7);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    #track-info:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     #track-info img {
@@ -205,7 +301,7 @@
     }
 
     #track-info img:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) rotate(3deg);
     }
 
     #track-info p {
@@ -244,7 +340,7 @@
       background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.5) 50%,
         rgba(255, 255, 255, 0) 100%
       );
       animation: shimmer 2s infinite;
@@ -255,7 +351,6 @@
       100% { transform: translateX(100%); }
     }
 
-    /* Estilo para el elemento progress nativo */
     #track-info progress {
       width: 100%;
       height: 10px;
@@ -295,9 +390,9 @@
       display: flex;
       align-items: center;
       padding: 1rem;
-      background-color: var(--white);
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
       animation: slideIn 0.5s ease forwards;
       opacity: 0;
@@ -312,8 +407,8 @@
     }
 
     .song:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .song img {
@@ -323,6 +418,11 @@
       object-fit: cover;
       margin-right: 1rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .song:hover img {
+      transform: scale(1.1) rotate(3deg);
     }
 
     .song p {
@@ -340,21 +440,62 @@
       cursor: pointer;
       font-weight: 600;
       transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .song button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: all 0.6s;
+    }
+
+    .song button:hover::before {
+      left: 100%;
     }
 
     .song button:hover {
-      background: var(--gradient-dark);
       transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     footer {
-      background: var(--dark-gray);
+      background: rgba(0, 0, 0, 0.7);
       color: var(--white);
       text-align: center;
       padding: 1.5rem;
       font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+      animation: ripple 15s infinite;
+      z-index: -1;
+    }
+
+    @keyframes ripple {
+      0% { transform: translate(-50%, -50%) scale(0.9); }
+      50% { transform: translate(-50%, -50%) scale(1.1); }
+      100% { transform: translate(-50%, -50%) scale(0.9); }
     }
 
     /* Scrollbar styling */
@@ -363,7 +504,7 @@
     }
 
     #search-results::-webkit-scrollbar-track {
-      background: var(--light-gray);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
     }
 
@@ -416,6 +557,7 @@
 </head>
 <body>
   <div class="container">
+    <div class="animated-background"></div>
     <div class="content-wrapper">
       <div class="content">
         <div class="logo">
