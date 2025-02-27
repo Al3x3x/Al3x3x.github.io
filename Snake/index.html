@@ -1,76 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snake JS</title>
-  <script type="module" src="./app.js"></script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #8e44ad; /* Fondo morado */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .game {
-      text-align: center;
-    }
-
-    .game-title {
-      font-size: 3em;
-      margin-bottom: 20px;
-      color: #ecf0f1; /* Texto blanco */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
-    }
-
-    .game-info {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      color: #ecf0f1;
-    }
-
-    .canvas-container {
-      position: relative;
-    }
-
-    canvas {
-      background: #3498db; /* Color de fondo del canvas */
-      border: 10px solid #2980b9; /* Borde azul */
-      border-radius: 10px;
-      margin: 20px auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      animation: pulse 2s infinite alternate; /* Animación de pulso */
-    }
-
-    .message {
-      font-size: 1.2em;
-      color: #e74c3c;
-      margin-top: 20px;
-    }
-
-    @keyframes pulse {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.05);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="game">
-    <h1 class="game-title">Snake Javascript</h1>
-    <p class="game-info">Puntuación: <span id="score">0</span> FPS: <span id="fps">0</span></p>
-    <div class="canvas-container">
-      <canvas id="pantalla" height="600" width="600"></canvas>
-      <p id="msg" class="message">Presiona espacio para iniciar</p>
+    <div class="background-animation"></div>
+    
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">SNAKE GAME</h1>
+            <div class="snake-icon">
+                <div class="snake-eye"></div>
+                <div class="snake-tongue"></div>
+            </div>
+        </div>
+        
+        <div class="game-stats">
+            <div class="stat-box">
+                <span class="stat-label">SCORE:</span>
+                <span id="score" class="stat-value">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">FPS:</span>
+                <span id="fps" class="stat-value">0</span>
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="pantalla" width="800" height="800"></canvas>
+            <div id="msg" class="game-message">Press <em>Space</em> to start</div>
+        </div>
+        
+        <div class="controls-info">
+            <div class="control-key">
+                <div class="key">↑</div>
+                <span>Up</span>
+            </div>
+            <div class="control-row">
+                <div class="control-key">
+                    <div class="key">←</div>
+                    <span>Left</span>
+                </div>
+                <div class="control-key">
+                    <div class="key">↓</div>
+                    <span>Down</span>
+                </div>
+                <div class="control-key">
+                    <div class="key">→</div>
+                    <span>Right</span>
+                </div>
+            </div>
+            <div class="control-key space-key">
+                <div class="key">Space</div>
+                <span>Start/Restart</span>
+            </div>
+        </div>
     </div>
-  </div>
+    
+    <script type="module" src="app.js"></script>
 </body>
 </html>
+
