@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const trackInfo = document.querySelector("#track-info");
   var reproduciendo = false;
 
-  const API_BASE_URL = "https://spotify-api-production-3b69.up.railway.app/";
+  const API_BASE_URL = "https://spotify-api-production-3b69.up.railway.app/spotify";
 
   // Función para mostrar la canción actual
   async function loadCurrentTrack() {
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const updatedData = await fetch(`${API_BASE_URL}/current-track`).then(res => res.json());
           progressBar.value = updatedData.progress / updatedData.duration;
           if(updatedData.progress+2000>updatedData.duration)
-             setTimeout(() => location.reload(), 2000);
-        }, 1000);
+             setTimeout(() => location.reload(), 20000);
+	}, 10089);
 
       } else {
         trackStatus.textContent = "En este momento no estoy escuchando nada, puedes recomendarme musica por IG: Al3x.jar :)";
