@@ -15,6 +15,14 @@ const projects = [
     image: "snake.png",
     url: "/Snake",
   },
+  {
+    id: "problems",
+    title: "Problemas resueltos",
+    description: "Pagina para usar como repositorio de todos los problemas que eh resuelto.",
+    image: "problems.png",
+    url: "/problems",
+  }
+
  
 ]
 
