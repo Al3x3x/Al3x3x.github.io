@@ -2,16 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get GitHub username and repository name from URL or set defaults
   // Format: https://username.github.io/repository-name/
   const pathSegments = window.location.pathname.split("/").filter((segment) => segment.length > 0)
-  const repoName = pathSegments.length > 0 ? pathSegments[0] : "leetcode-solutions"
+  const repoName = "Al3x3x.github.io" // Cambia esto al nombre exacto de tu repositorio
 
   // Get GitHub username from the hostname or use a default
-  let username = ""
-  if (window.location.hostname.includes("github.io")) {
-    username = window.location.hostname.split(".")[0]
-  } else {
-    // For local development, set your GitHub username here
-    username = "your-github-username"
-  }
+  const username = "Al3x3x" // Cambia esto a tu nombre de usuario de GitHub
 
   const problemsContainer = document.getElementById("problems-container")
   const codeDisplay = document.getElementById("code-display")
@@ -27,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       problemsContainer.innerHTML = '<div class="loading">Loading problems...</div>'
 
-      // Fetch the contents of the src directory
-      const response = await fetch(`https://api.github.com/repos/${username}/${repoName}/contents/src`)
+      // Fetch the contents of the problems/src directory
+      const response = await fetch(`https://api.github.com/repos/${username}/${repoName}/contents/problems/src`)
 
       if (!response.ok) {
         throw new Error(`GitHub API error: ${response.status}`)
@@ -49,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return {
           id: file.sha,
           name: formatProblemName(name),
-          filename: file.name,
-          language: language,
-          url: file.download_url,
-          rawUrl: file.download_url,
+                              filename: file.name,
+                              language: language,
+                              url: file.download_url,
+                              rawUrl: file.download_url,
         }
       })
 
@@ -91,9 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
       problemElement.dataset.id = problem.id
 
       problemElement.innerHTML = `
-                <span>${problem.name}</span>
-                <span class="language-badge ${problem.language}">${problem.language.toUpperCase()}</span>
-            `
+      <span>${problem.name}</span>
+      <span class="language-badge ${problem.language}">${problem.language.toUpperCase()}</span>
+      `
 
       problemElement.addEventListener("click", () => {
         // Remove active class from all problems
