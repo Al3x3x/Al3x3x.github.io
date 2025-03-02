@@ -1,11 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Get GitHub username and repository name from URL or set defaults
-  // Format: https://username.github.io/repository-name/
-  const pathSegments = window.location.pathname.split("/").filter((segment) => segment.length > 0)
-  const repoName = "Al3x3x.github.io" // Cambia esto al nombre exacto de tu repositorio
-
-  // Get GitHub username from the hostname or use a default
-  const username = "Al3x3x" // Cambia esto a tu nombre de usuario de GitHub
+  const username = "Al3x3x" // Your GitHub username
+  const repoName = "problems" // The repository name where your LeetCode solutions are stored
 
   const problemsContainer = document.getElementById("problems-container")
   const codeDisplay = document.getElementById("code-display")
@@ -21,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       problemsContainer.innerHTML = '<div class="loading">Loading problems...</div>'
 
-      // Fetch the contents of the problems/src directory
-      const response = await fetch(`https://api.github.com/repos/${username}/${repoName}/contents/problems/src`)
+      // Fetch the contents of the src directory in the 'problems' repository
+      const response = await fetch(`https://api.github.com/repos/${username}/${repoName}/contents/src`)
 
       if (!response.ok) {
         throw new Error(`GitHub API error: ${response.status}`)
@@ -45,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
           name: formatProblemName(name),
                               filename: file.name,
                               language: language,
-                              url: file.download_url,
+                              url: file.html_url,
                               rawUrl: file.download_url,
         }
       })
@@ -150,12 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Check for new files periodically (every 5 minutes)
   function setupAutoRefresh() {
-    setInterval(
-      () => {
-        fetchRepositoryContents()
-      },
-      5 * 60 * 1000,
-    ) // 5 minutes
+    setInterval(fetchRepositoryContents, 5 * 60 * 1000) // 5 minutes
   }
 
   // Initial fetch
