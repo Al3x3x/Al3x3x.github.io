@@ -13,7 +13,7 @@ const projects = [
     title: "Juego Snake",
     description: "Un juego clásico de la serpiente desarrollado en JavaScript como parte de un curso.",
     image: "snake.png",
-    url: "/snake",
+    url: "/Snake",
   },
  
 ]
