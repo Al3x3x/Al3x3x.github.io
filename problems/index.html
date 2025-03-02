@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Solutions Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My LeetCode Solutions</h1>
+            <div class="filters">
+                <button class="filter-btn active" data-language="all">All</button>
+                <button class="filter-btn" data-language="cpp">C++</button>
+                <button class="filter-btn" data-language="java">Java</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="problems-list">
+                <h2>Problems</h2>
+                <div id="problems-container">
+                    <!-- Problems will be loaded here -->
+                    <div class="loading">Loading problems...</div>
+                </div>
+            </div>
+            
+            <div class="code-viewer">
+                <div class="code-header">
+                    <h2 id="problem-title">Select a problem to view code</h2>
+                    <span id="problem-language" class="language-badge"></span>
+                </div>
+                <pre id="code-display"><code>// Code will appear here when you select a problem</code></pre>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
