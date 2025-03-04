@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crucigrama Español</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header>
+            <h1 class="title">Crucigrama Español</h1>
+            <p class="subtitle">Resuelve el crucigrama y aprende nuevas palabras</p>
+        </header>
+
+        <div class="game-container">
+            <div class="crossword-wrapper">
+                <div id="crossword-grid" class="crossword-grid"></div>
+            </div>
+
+            <div class="sidebar">
+                <div class="clues-container">
+                    <div class="clues-section">
+                        <h2>Horizontales</h2>
+                        <ul id="horizontal-clues" class="clues-list"></ul>
+                    </div>
+                    <div class="clues-section">
+                        <h2>Verticales</h2>
+                        <ul id="vertical-clues" class="clues-list"></ul>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="check-btn" class="btn btn-check">Verificar</button>
+                    <button id="hint-btn" class="btn btn-hint">Pista</button>
+                    <button id="reset-btn" class="btn btn-reset">Reiniciar</button>
+                    <div class="timer">
+                        <div class="timer-icon">⏱️</div>
+                        <span id="timer">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <div id="confetti-container" class="confetti-container"></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">¡Felicidades!</h2>
+                <div class="modal-trophy">🏆</div>
+            </div>
+            <p id="modal-message">Has completado el crucigrama correctamente.</p>
+            <button id="modal-close" class="btn btn-modal">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
