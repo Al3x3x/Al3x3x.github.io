@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes y Precios - VirtuaSys Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>VirtuaSys<span>Solutions</span></h1>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="planes.html" class="active">Planes</a></li>
+                <li><a href="rendimiento.html">Rendimiento</a></li>
+                <li><a href="crear-maquina.html">Crear VM</a></li>
+                <li><a href="backups.html">Backups</a></li>
+                <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+                <li><a href="signup.html" class="btn-signup">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <h1>Planes y Precios</h1>
+                <p>Soluciones flexibles para cada necesidad</p>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="pricing-toggle">
+                <span>Facturación Mensual</span>
+                <label class="switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Facturación Anual <span class="discount-badge">20% de descuento</span></span>
+            </div>
+
+            <div class="pricing-categories">
+                <button class="pricing-category active" data-category="vps">Servidores VPS</button>
+                <button class="pricing-category" data-category="rdp">Escritorios Remotos</button>
+                <button class="pricing-category" data-category="enterprise">Soluciones Empresariales</button>
+            </div>
+
+            <div class="plans-container">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Básico</h3>
+                        <p class="price">$29<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$23<span>/mes</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 2 vCPUs</li>
+                            <li><i class="fas fa-check"></i> 4GB RAM</li>
+                            <li><i class="fas fa-check"></i> 80GB SSD</li>
+                            <li><i class="fas fa-check"></i> 1TB Transferencia</li>
+                            <li><i class="fas fa-check"></i> 1 IP Pública</li>
+                            <li><i class="fas fa-check"></i> Firewall Básico</li>
+                            <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                            <li class="feature-disabled"><i class="fas fa-times"></i> Backups Automáticos</li>
+                            <li class="feature-disabled"><i class="fas fa-times"></i> Monitoreo Avanzado</li>
+                            <li class="feature-disabled"><i class="fas fa-times"></i> Balanceo de Carga</li>
+                        </ul>
+                    </div>
+                    <a href="signup.html" class="btn-plan">Comenzar</a>
+                </div>
+                <div class="plan-card featured">
+                    <div class="plan-badge">Popular</div>
+                    <div class="plan-header">
+                        <h3>Profesional</h3>
+                        <p class="price">$59<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$47<span>/mes</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 4 vCPUs</li>
+                            <li><i class="fas fa-check"></i> 8GB RAM</li>
+                            <li><i class="fas fa-check"></i> 160GB SSD</li>
+                            <li><i class="fas fa-check"></i> 3TB Transferencia</li>
+                            <li><i class="fas fa-check"></i> 1 IP Pública</li>
+                            <li><i class="fas fa-check"></i> Firewall Avanzado</li>
+                            <li><i class="fas fa-check"></i> Soporte 24/7 Prioritario</li>
+                            <li><i class="fas fa-check"></i> Backups Semanales</li>
+                            <li><i class="fas fa-check"></i> Monitoreo Básico</li>
+                            <li class="feature-disabled"><i class="fas fa-times"></i> Balanceo de Carga</li>
+                        </ul>
+                    </div>
+                    <a href="signup.html" class="btn-plan">Comenzar</a>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Empresarial</h3>
+                        <p class="price">$119<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$95<span>/mes</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 8 vCPUs</li>
+                            <li><i class="fas fa-check"></i> 16GB RAM</li>
+                            <li><i class="fas fa-check"></i> 320GB SSD</li>
+                            <li><i class="fas fa-check"></i> 5TB Transferencia</li>
+                            <li><i class="fas fa-check"></i> 2 IPs Públicas</li>
+                            <li><i class="fas fa-check"></i> Firewall Avanzado</li>
+                            <li><i class="fas fa-check"></i> Soporte 24/7 Dedicado</li>
+                            <li><i class="fas fa-check"></i> Backups Diarios</li>
+                            <li><i class="fas fa-check"></i> Monitoreo Avanzado</li>
+                            <li><i class="fas fa-check"></i> Balanceo de Carga</li>
+                        </ul>
+                    </div>
+                    <a href="signup.html" class="btn-plan">Comenzar</a>
+                </div>
+                <div class="plan-card premium">
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <p class="price">$229<span>/mes</span></p>
+                        <p class="price annual-price" style="display: none;">$183<span>/mes</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 16 vCPUs</li>
+                            <li><i class="fas fa-check"></i> 32GB RAM</li>
+                            <li><i class="fas fa-check"></i> 640GB SSD</li>
+                            <li><i class="fas fa-check"></i> 10TB Transferencia</li>
+                            <li><i class="fas fa-check"></i> 4 IPs Públicas</li>
+                            <li><i class="fas fa-check"></i> Firewall Personalizado</li>
+                            <li><i class="fas fa-check"></i> Soporte 24/7 VIP</li>
+                            <li><i class="fas fa-check"></i> Backups Diarios</li>
+                            <li><i class="fas fa-check"></i> Monitoreo Premium</li>
+                            <li><i class="fas fa-check"></i> Balanceo de Carga Avanzado</li>
+                        </ul>
+                    </div>
+                    <a href="signup.html" class="btn-plan">Comenzar</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="custom-plan">
+            <div class="custom-plan-content">
+                <h2>¿Necesitas un Plan Personalizado?</h2>
+                <p>Configura tu propio servidor con los recursos exactos que necesitas</p>
+                <div class="custom-plan-calculator">
+                    <div class="calculator-section">
+                        <h3>Configura tus Recursos</h3>
+                        <div class="calculator-resources">
+                            <div class="calculator-resource">
+                                <label for="custom-cpu">vCPUs</label>
+                                <div class="resource-control">
+                                    <button class="control-btn minus">-</button>
+                                    <input type="number" id="custom-cpu" value="4" min="1" max="32">
+                                    <button class="control-btn plus">+</button>
+                                </div>
+                            </div>
+                            <div class="calculator-resource">
+                                <label for="custom-ram">RAM (GB)</label>
+                                <div class="resource-control">
+                                    <button class="control-btn minus">-</button>
+                                    <input type="number" id="custom-ram" value="8" min="1" max="128">
+                                    <button class="control-btn plus">+</button>
+                                </div>
+                            </div>
+                            <div class="calculator-resource">
+                                <label for="custom-storage">Almacenamiento (GB)</label>
+                                <div class="resource-control">
+                                    <button class="control-btn minus">-</button>
+                                    <input type="number" id="custom-storage" value="160" min="20" max="2000">
+                                    <button class="control-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calculator-section">
+                        <h3>Opciones Adicionales</h3>
+                        <div class="calculator-options">
+                            <div class="option-checkbox">
+                                <input type="checkbox" id="option-backup" checked>
+                                <label for="option-backup">Backups Automáticos (+$10/mes)</label>
+                            </div>
+                            <div class="option-checkbox">
+                                <input type="checkbox" id="option-monitoring" checked>
+                                <label for="option-monitoring">Monitoreo Avanzado (+$15/mes)</label>
+                            </div>
+                            <div class="option-checkbox">
+                                <input type="checkbox" id="option-loadbalancer">
+                                <label for="option-loadbalancer">Balanceo de Carga (+$25/mes)</label>
+                            </div>
+                            <div class="option-checkbox">
+                                <input type="checkbox" id="option-ddos">
+                                <label for="option-ddos">Protección DDoS (+$20/mes)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calculator-result">
+                        <div class="result-details">
+                            <div class="result-item">
+                                <span>Costo Base:</span>
+                                <span id="base-cost">$80.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Opciones Adicionales:</span>
+                                <span id="options-cost">$25.00</span>
+                            </div>
+                            <div class="result-item total">
+                                <span>Total Mensual:</span>
+                                <span id="total-cost">$105.00</span>
+                            </div>
+                        </div>
+                        <a href="signup.html" class="btn-primary">Crear Plan Personalizado</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <h2>Comparativa de Planes</h2>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Características</th>
+                            <th>Básico</th>
+                            <th>Profesional</th>
+                            <th>Empresarial</th>
+                            <th>Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>vCPUs</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>4GB</td>
+                            <td>8GB</td>
+                            <td>16GB</td>
+                            <td>32GB</td>
+                        </tr>
+                        <tr>
+                            <td>Almacenamiento</td>
+                            <td>80GB SSD</td>
+                            <td>160GB SSD</td>
+                            <td>320GB SSD</td>
+                            <td>640GB SSD</td>
+                        </tr>
+                        <tr>
+                            <td>Transferencia</td>
+                            <td>1TB</td>
+                            <td>3TB</td>
+                            <td>5TB</td>
+                            <td>10TB</td>
+                        </tr>
+                        <tr>
+                            <td>IPs Públicas</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>Firewall</td>
+                            <td>Básico</td>
+                            <td>Avanzado</td>
+                            <td>Avanzado</td>
+                            <td>Personalizado</td>
+                        </tr>
+                        <tr>
+                            <td>Backups</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td>Semanales</td>
+                            <td>Diarios</td>
+                            <td>Diarios</td>
+                        </tr>
+                        <tr>
+                            <td>Monitoreo</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td>Básico</td>
+                            <td>Avanzado</td>
+                            <td>Premium</td>
+                        </tr>
+                        <tr>
+                            <td>Balanceo de Carga</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td>Básico</td>
+                            <td>Avanzado</td>
+                        </tr>
+                        <tr>
+                            <td>Soporte</td>
+                            <td>24/7</td>
+                            <td>24/7 Prioritario</td>
+                            <td>24/7 Dedicado</td>
+                            <td>24/7 VIP</td>
+                        </tr>
+                        <tr>
+                            <td>Precio Mensual</td>
+                            <td>$29</td>
+                            <td>$59</td>
+                            <td>$119</td>
+                            <td>$229</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><a href="signup.html" class="btn-secondary">Elegir</a></td>
+                            <td><a href="signup.html" class="btn-primary">Elegir</a></td>
+                            <td><a href="signup.html" class="btn-secondary">Elegir</a></td>
+                            <td><a href="signup.html" class="btn-secondary">Elegir</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué es un servidor VPS?</h3>
+                        <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Un servidor VPS (Virtual Private Server) es un servidor virtual que funciona en un entorno virtualizado pero que ofrece recursos dedicados como CPU, RAM y almacenamiento. A diferencia del hosting compartido, un VPS te proporciona mayor control, rendimiento y seguridad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Puedo cambiar de plan en cualquier momento?</h3>
+                        <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, puedes actualizar o cambiar tu plan en cualquier momento. La migración a un plan superior es instantánea y sin tiempo de inactividad. Si necesitas reducir recursos, programaremos el cambio para minimizar cualquier interrupción en tu servicio.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué sistemas operativos están disponibles?</h3>
+                        <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ofrecemos una amplia variedad de sistemas operativos, incluyendo Ubuntu, Debian, CentOS, Fedora, Alpine, Arch Linux, Windows Server y más. También puedes subir tu propia imagen ISO personalizada.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo funcionan los backups?</h3>
+                        <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nuestro sistema de backups realiza copias completas de tus máquinas virtuales según la frecuencia de tu plan (semanal o diaria). Los backups se almacenan en una infraestructura separada y redundante. Puedes restaurar un backup completo o archivos específicos a través del panel de control.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué tipo de soporte ofrecen?</h3>
+                        <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Todos nuestros planes incluyen soporte técnico 24/7. La diferencia entre los niveles de soporte está en el tiempo de respuesta y el nivel de asistencia. Los planes superiores tienen acceso a ingenieros senior y tiempos de respuesta más rápidos. También ofrecemos soporte por chat, correo electrónico y teléfono.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Puedo probar el servicio antes de pagar?</h3>
+                        <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos un período de prueba gratuito de 7 días para nuevos clientes. Durante este período puedes probar todas las funcionalidades de nuestro servicio sin compromiso. Además, todos nuestros planes tienen garantía de devolución de dinero de 30 días.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2>¿Listo para impulsar tu negocio?</h2>
+                <p>Comienza hoy mismo con VirtuaSys Solutions y lleva tus aplicaciones al siguiente nivel.</p>
+                <a href="signup.html" class="btn-primary">Crear Cuenta Gratis</a>
+            </div>
+        </section>
+    </main>
+  <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>VirtuaSys<span>Solutions</span></h2>
+                <p>Soluciones de virtualización para el mundo moderno</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                        <li><a href="#">Equipo</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="planes.html">Planes VPS</a></li>
+                        <li><a href="crear-maquina.html">Máquinas Virtuales</a></li>
+                        <li><a href="backups.html">Backups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contacto@virtuasys.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +52 8714184971</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Torreón Coah, México</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VirtuaSys Solutions. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pricing.js"></script>
+</body>
+</html>

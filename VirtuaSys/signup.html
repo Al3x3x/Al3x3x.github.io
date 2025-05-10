@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - VirtuaSys Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>VirtuaSys<span>Solutions</span></h1>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="rendimiento.html">Rendimiento</a></li>
+                <li><a href="crear-maquina.html">Crear VM</a></li>
+                <li><a href="backups.html">Backups</a></li>
+                <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+                <li><a href="signup.html" class="active btn-signup">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2>Crear Cuenta</h2>
+                    <p>Únete a VirtuaSys Solutions y comienza a crear tus máquinas virtuales</p>
+                </div>
+                <form id="signup-form" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">Nombre</label>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="first-name" name="first-name" placeholder="Tu nombre" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Apellido</label>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="last-name" name="last-name" placeholder="Tu apellido" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Empresa (Opcional)</label>
+                        <div class="input-icon">
+                            <i class="fas fa-building"></i>
+                            <input type="text" id="company" name="company" placeholder="Nombre de tu empresa">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-segment"></div>
+                                <div class="strength-segment"></div>
+                                <div class="strength-segment"></div>
+                                <div class="strength-segment"></div>
+                            </div>
+                            <span class="strength-text">Débil</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmar Contraseña</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <div class="terms-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Acepto los <a href="#">Términos de Servicio</a> y la <a href="#">Política de Privacidad</a></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-auth">Crear Cuenta</button>
+                    <div class="auth-divider">
+                        <span>O regístrate con</span>
+                    </div>
+                    <div class="social-auth">
+                        <button type="button" class="btn-social google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="btn-social github">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </button>
+                    </div>
+                </form>
+                <div class="auth-footer">
+                    <p>¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión</a></p>
+                </div>
+            </div>
+            <div class="auth-image">
+                <img src="img/signup-illustration.svg" alt="Ilustración de registro">
+                <div class="auth-features">
+                    <h3>Al registrarte obtienes:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Acceso a todas nuestras herramientas de virtualización</li>
+                        <li><i class="fas fa-check-circle"></i> $50 de crédito gratis para probar nuestros servicios</li>
+                        <li><i class="fas fa-check-circle"></i> Soporte técnico 24/7</li>
+                        <li><i class="fas fa-check-circle"></i> Acceso a nuestra documentación y tutoriales</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>VirtuaSys<span>Solutions</span></h2>
+                <p>Soluciones de virtualización para el mundo moderno</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                        <li><a href="#">Equipo</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="planes.html">Planes VPS</a></li>
+                        <li><a href="crear-maquina.html">Máquinas Virtuales</a></li>
+                        <li><a href="backups.html">Backups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contacto@virtuasys.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +52 8714184971</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Torreón Coah, México</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VirtuaSys Solutions. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <style>
+    .dashboard-bg { fill: #f8f8f8; stroke: #e0e0e0; stroke-width: 2; }
+    .panel { fill: white; stroke: #e0e0e0; stroke-width: 1; }
+    .panel-header { fill: #f0f0f0; }
+    .chart-bar { fill: url(#barGradient); }
+    .chart-line { fill: none; stroke: url(#lineGradient); stroke-width: 2; }
+    .chart-area { fill: url(#areaGradient); opacity: 0.3; }
+    .chart-dot { fill: #8a2be2; }
+    .chart-grid { stroke: #e0e0e0; stroke-width: 0.5; }
+    .backup-item { fill: white; stroke: #e0e0e0; stroke-width: 1; }
+    .backup-status { stroke-width: 0; }
+    .backup-status.success { fill: #28a745; }
+    .backup-status.warning { fill: #ffc107; }
+    .backup-status.danger { fill: #dc3545; }
+    .backup-progress { fill: url(#progressGradient); }
+    .backup-progress-bg { fill: #f0f0f0; }
+    .button { fill: #8a2be2; }
+    .button:hover { fill: #ff69b4; cursor: pointer; }
+    .text-primary { fill: #8a2be2; }
+    .text-secondary { fill: #6c757d; }
+    .text-success { fill: #28a745; }
+    .text-warning { fill: #ffc107; }
+    .text-danger { fill: #dc3545; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+  </style>
+  
+  <defs>
+    <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a2be2" />
+      <stop offset="100%" stop-color="#ff69b4" />
+    </linearGradient>
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8a2be2" />
+      <stop offset="100%" stop-color="#ff69b4" />
+    </linearGradient>
+    <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a2be2" />
+      <stop offset="100%" stop-color="#ff69b4" />
+    </linearGradient>
+    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8a2be2" />
+      <stop offset="100%" stop-color="#ff69b4" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Dashboard Background -->
+  <rect x="0" y="0" width="800" height="500" class="dashboard-bg" rx="5" />
+  
+  <!-- Dashboard Header -->
+  <rect x="0" y="0" width="800" height="60" fill="#8a2be2" />
+  <text x="30" y="38" font-family="Arial" font-size="20" font-weight="bold" fill="white">Panel de Control de Backups</text>
+  
+  <!-- Navigation -->
+  <rect x="0" y="60" width="200" height="440" fill="#f8f8f8" />
+  <rect x="10" y="80" width="180" height="40" rx="5" fill="#8a2be2" />
+  <text x="50" y="105" font-family="Arial" font-size="14" fill="white">Dashboard</text>
+  <rect x="10" y="130" width="180" height="40" rx="5" fill="white" stroke="#e0e0e0" stroke-width="1" />
+  <text x="50" y="155" font-family="Arial" font-size="14" fill="#8a2be2">Backups</text>
+  <rect x="10" y="180" width="180" height="40" rx="5" fill="white" stroke="#e0e0e0" stroke-width="1" />
+  <text x="50" y="205" font-family="Arial" font-size="14" fill="#8a2be2">Restauración</text>
+  <rect x="10" y="230" width="180" height="40" rx="5" fill="white" stroke="#e0e0e0" stroke-width="1" />
+  <text x="50" y="255" font-family="Arial" font-size="14" fill="#8a2be2">Programación</text>
+  <rect x="10" y="280" width="180" height="40" rx="5" fill="white" stroke="#e0e0e0" stroke-width="1" />
+  <text x="50" y="305" font-family="Arial" font-size="14" fill="#8a2be2">Configuración</text>
+  <rect x="10" y="330" width="180" height="40" rx="5" fill="white" stroke="#e0e0e0" stroke-width="1" />
+  <text x="50" y="355" font-family="Arial" font-size="14" fill="#8a2be2">Informes</text>
+  
+  <!-- Main Content -->
+  <!-- Storage Usage Panel -->
+  <rect x="220" y="80" width="250" height="150" class="panel" rx="5" />
+  <rect x="220" y="80" width="250" height="40" class="panel-header" rx="5 5 0 0" />
+  <text x="240" y="105" font-family="Arial" font-size="14" font-weight="bold" class="text-primary">Uso de Almacenamiento</text>
+  
+  <rect x="240" y="140" width="210" height="20" rx="10" class="backup-progress-bg" />
+  <rect x="240" y="140" width="147" height="20" rx="10" class="backup-progress" />
+  <text x="345" y="155" font-family="Arial" font-size="12" fill="white" text-anchor="middle">70% Utilizado</text>
+  
+  <text x="240" y="190" font-family="Arial" font-size="12" class="text-secondary">350GB de 500GB</text>
+  <text x="430" y="190" font-family="Arial" font-size="12" class="text-primary" text-anchor="end">Ampliar</text>
+  
+  <!-- Backup Status Panel -->
+  <rect x="490" y="80" width="290" height="150" class="panel" rx="5" />
+  <rect x="490" y="80" width="290" height="40" class="panel-header" rx="5 5 0 0" />
+  <text x="510" y="105" font-family="Arial" font-size="14" font-weight="bold" class="text-primary">Estado de Backups</text>
+  
+  <circle cx="530" cy="160" r="30" class="backup-progress-bg" />
+  <path d="M530,130 A30,30 0 0,1 556,175 L530,160 Z" class="backup-status success" />
+  <text x="530" y="165" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">85%</text>
+  <text x="530" y="185" font-family="Arial" font-size="10" class="text-secondary" text-anchor="middle">Exitosos</text>
+  
+  <circle cx="620" cy="160" r="30" class="backup-progress-bg" />
+  <path d="M620,130 A30,30 0 0,1 620,190 L620,160 Z" class="backup-status warning" />
+  <text x="620" y="165" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">10%</text>
+  <text x="620" y="185" font-family="Arial" font-size="10" class="text-secondary" text-anchor="middle">Advertencias</text>
+  
+  <circle cx="710" cy="160" r="30" class="backup-progress-bg" />
+  <path d="M710,130 A30,30 0 0,1 695,135 L710,160 Z" class="backup-status danger" />
+  <text x="710" y="165" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">5%</text>
+  <text x="710" y="185" font-family="Arial" font-size="10" class="text-secondary" text-anchor="middle">Fallidos</text>
+  
+  <!-- Backup History Chart -->
+  <rect x="220" y="250" width="560" height="230" class="panel" rx="5" />
+  <rect x="220" y="250" width="560" height="40" class="panel-header" rx="5 5 0 0" />
+  <text x="240" y="275" font-family="Arial" font-size="14" font-weight="bold" class="text-primary">Historial de Backups</text>
+  
+  <!-- Chart Grid -->
+  <line x1="240" y1="430" x2="760" y2="430" class="chart-grid" />
+  <line x1="240" y1="390" x2="760" y2="390" class="chart-grid" />
+  <line x1="240" y1="350" x2="760" y2="350" class="chart-grid" />
+  <line x1="240" y1="310" x2="760" y2="310" class="chart-grid" />
+  
+  <!-- Chart Labels -->
+  <text x="240" y="445" font-family="Arial" font-size="10" class="text-secondary">Lun</text>
+  <text x="325" y="445" font-family="Arial" font-size="10" class="text-secondary">Mar</text>
+  <text x="410" y="445" font-family="Arial" font-size="10" class="text-secondary">Mié</text>
+  <text x="495" y="445" font-family="Arial" font-size="10" class="text-secondary">Jue</text>
+  <text x="580" y="445" font-family="Arial" font-size="10" class="text-secondary">Vie</text>
+  <text x="665" y="445" font-family="Arial" font-size="10" class="text-secondary">Sáb</text>
+  <text x="750" y="445" font-family="Arial" font-size="10" class="text-secondary">Dom</text>
+  
+  <text x="230" y="430" font-family="Arial" font-size="10" class="text-secondary" text-anchor="end">0</text>
+  <text x="230" y="390" font-family="Arial" font-size="10" class="text-secondary" text-anchor="end">25</text>
+  <text x="230" y="350" font-family="Arial" font-size="10" class="text-secondary" text-anchor="end">50</text>
+  <text x="230" y="310" font-family="Arial" font-size="10" class="text-secondary" text-anchor="end">75</text>
+  
+  <!-- Chart Bars -->
+  <rect x="250" y="370" width="30" height="60" rx="3" class="chart-bar" />
+  <rect x="335" y="350" width="30" height="80" rx="3" class="chart-bar" />
+  <rect x="420" y="330" width="30" height="100" rx="3" class="chart-bar" />
+  <rect x="505" y="310" width="30" height="120" rx="3" class="chart-bar" />
+  <rect x="590" y="340" width="30" height="90" rx="3" class="chart-bar" />
+  <rect x="675" y="360" width="30" height="70" rx="3" class="chart-bar" />
+  <rect x="760" y="380" width="30" height="50" rx="3" class="chart-bar" />
+  
+  <!-- Chart Line -->
+  <polyline points="265,350 350,330 435,310 520,290 605,320 690,340 775,360" class="chart-line" />
+  <circle cx="265" cy="350" r="4" class="chart-dot" />
+  <circle cx="350" cy="330" r="4" class="chart-dot" />
+  <circle cx="435" cy="310" r="4" class="chart-dot" />
+  <circle cx="520" cy="290" r="4" class="chart-dot pulse" />
+  <circle cx="605" cy="320" r="4" class="chart-dot" />
+  <circle cx="690" cy="340" r="4" class="chart-dot" />
+  <circle cx="775" cy="360" r="4" class="chart-dot" />
+  
+  <!-- Chart Area -->
+  <path d="M265,350 L350,330 L435,310 L520,290 L605,320 L690,340 L775,360 L775,430 L265,430 Z" class="chart-area" />
+  
+  <!-- Legend -->
+  <rect x="600" y="260" width="15" height="15" rx="3" class="chart-bar" />
+  <text x="620" y="273" font-family="Arial" font-size="12" class="text-secondary">Tamaño de Backup</text>
+  
+  <circle cx="670" cy="268" r="4" class="chart-dot" />
+  <line x1="680" y1="268" x2="700" y2="268" class="chart-line" />
+  <text x="710" y="273" font-family="Arial" font-size="12" class="text-secondary">Tiempo de Backup</text>
+</svg>

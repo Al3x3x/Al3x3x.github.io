@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Máquina Virtual - VirtuaSys Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>VirtuaSys<span>Solutions</span></h1>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="rendimiento.html">Rendimiento</a></li>
+                <li><a href="crear-maquina.html" class="active">Crear VM</a></li>
+                <li><a href="backups.html">Backups</a></li>
+                <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+                <li><a href="signup.html" class="btn-signup">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <h1>Crear Máquina Virtual</h1>
+                <p>Configura y despliega tu máquina virtual en minutos</p>
+            </div>
+        </section>
+
+        <section class="create-vm">
+            <div class="create-vm-container">
+                <div class="vm-wizard">
+                    <div class="wizard-steps">
+                        <div class="wizard-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h3>Sistema Operativo</h3>
+                                <p>Elige tu SO</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h3>Recursos</h3>
+                                <p>Configura CPU, RAM y almacenamiento</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <h3>Redes</h3>
+                                <p>Configura opciones de red</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-info">
+                                <h3>Seguridad</h3>
+                                <p>Configura acceso y seguridad</p>
+                            </div>
+                        </div>
+                        <div class="wizard-step" data-step="5">
+                            <div class="step-number">5</div>
+                            <div class="step-info">
+                                <h3>Resumen</h3>
+                                <p>Revisa y confirma</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-content">
+                        <div class="wizard-panel active" data-panel="1">
+                            <h2>Selecciona un Sistema Operativo</h2>
+                            <div class="os-categories">
+                                <button class="os-category active" data-category="linux">Linux</button>
+                                <button class="os-category" data-category="windows">Windows</button>
+                                <button class="os-category" data-category="macos">macOS</button>
+                                <button class="os-category" data-category="custom">Personalizado</button>
+                            </div>
+                            <div class="os-grid">
+                                <div class="os-card" data-os="ubuntu">
+                                    <div class="os-icon">
+                                        <img src="img/ubuntu.png" alt="Ubuntu">
+                                    </div>
+                                    <div class="os-info">
+                                        <h3>Ubuntu</h3>
+                                        <p>22.04 LTS</p>
+                                    </div>
+                                    <div class="os-select">
+                                        <input type="radio" name="os" id="ubuntu" value="ubuntu">
+                                        <label for="ubuntu"></label>
+                                    </div>
+                                </div>
+                                <div class="os-card" data-os="debian">
+                                    <div class="os-icon">
+                                        <img src="img/debian.png" alt="Debian">
+                                    </div>
+                                    <div class="os-info">
+                                        <h3>Debian</h3>
+                                        <p>11 (Bullseye)</p>
+                                    </div>
+                                    <div class="os-select">
+                                        <input type="radio" name="os" id="debian" value="debian">
+                                        <label for="debian"></label>
+                                    </div>
+                                </div>
+                                <div class="os-card" data-os="centos">
+                                    <div class="os-icon">
+                                        <img src="img/centos-logo.svg" alt="CentOS">
+                                    </div>
+                                    <div class="os-info">
+                                        <h3>CentOS</h3>
+                                        <p>Stream 9</p>
+                                    </div>
+                                    <div class="os-select">
+                                        <input type="radio" name="os" id="centos" value="centos">
+                                        <label for="centos"></label>
+                                    </div>
+                                </div>
+                                <div class="os-card" data-os="fedora">
+                                    <div class="os-icon">
+                                        <img src="img/fedora-logo.svg" alt="Fedora">
+                                    </div>
+                                    <div class="os-info">
+                                        <h3>Fedora</h3>
+                                        <p>36 Workstation</p>
+                                    </div>
+                                    <div class="os-select">
+                                        <input type="radio" name="os" id="fedora" value="fedora">
+                                        <label for="fedora"></label>
+                                    </div>
+                                </div>
+                                <div class="os-card" data-os="alpine">
+                                    <div class="os-icon">
+                                        <img src="img/alpine-logo.svg" alt="Alpine">
+                                    </div>
+                                    <div class="os-info">
+                                        <h3>Alpine</h3>
+                                        <p>3.16</p>
+                                    </div>
+                                    <div class="os-select">
+                                        <input type="radio" name="os" id="alpine" value="alpine">
+                                        <label for="alpine"></label>
+                                    </div>
+                                </div>
+                                <div class="os-card" data-os="arch">
+                                    <div class="os-icon">
+                                        <img src="img/arch-logo.svg" alt="Arch Linux">
+                                    </div>
+                                    <div class="os-info">
+                                        <h3>Arch Linux</h3>
+                                        <p>2023.05.01</p>
+                                    </div>
+                                    <div class="os-select">
+                                        <input type="radio" name="os" id="arch" value="arch">
+                                        <label for="arch"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-panel" data-panel="2">
+                            <h2>Configura los Recursos</h2>
+                            <div class="resources-config">
+                                <div class="resource-slider">
+                                    <div class="resource-header">
+                                        <h3>CPU</h3>
+                                        <span class="resource-value">2 vCPUs</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <input type="range" min="1" max="16" value="2" class="slider" id="cpu-slider">
+                                        <div class="slider-labels">
+                                            <span>1</span>
+                                            <span>4</span>
+                                            <span>8</span>
+                                            <span>12</span>
+                                            <span>16</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="resource-slider">
+                                    <div class="resource-header">
+                                        <h3>Memoria RAM</h3>
+                                        <span class="resource-value">4 GB</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <input type="range" min="1" max="64" value="4" class="slider" id="ram-slider">
+                                        <div class="slider-labels">
+                                            <span>1</span>
+                                            <span>16</span>
+                                            <span>32</span>
+                                            <span>48</span>
+                                            <span>64</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="resource-slider">
+                                    <div class="resource-header">
+                                        <h3>Almacenamiento</h3>
+                                        <span class="resource-value">80 GB</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <input type="range" min="20" max="1000" value="80" class="slider" id="storage-slider">
+                                        <div class="slider-labels">
+                                            <span>20</span>
+                                            <span>250</span>
+                                            <span>500</span>
+                                            <span>750</span>
+                                            <span>1000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="storage-type">
+                                    <h3>Tipo de Almacenamiento</h3>
+                                    <div class="storage-options">
+                                        <div class="storage-option">
+                                            <input type="radio" name="storage-type" id="ssd" value="ssd" checked>
+                                            <label for="ssd">
+                                                <div class="option-icon">
+                                                    <i class="fas fa-bolt"></i>
+                                                </div>
+                                                <div class="option-info">
+                                                    <h4>SSD</h4>
+                                                    <p>Alto rendimiento</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="storage-option">
+                                            <input type="radio" name="storage-type" id="hdd" value="hdd">
+                                            <label for="hdd">
+                                                <div class="option-icon">
+                                                    <i class="fas fa-hdd"></i>
+                                                </div>
+                                                <div class="option-info">
+                                                    <h4>HDD</h4>
+                                                    <p>Mayor capacidad</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-panel" data-panel="3">
+                            <h2>Configura las Opciones de Red</h2>
+                            <div class="network-config">
+                                <div class="network-section">
+                                    <h3>Conectividad</h3>
+                                    <div class="network-options">
+                                        <div class="network-option">
+                                            <input type="radio" name="network-type" id="public" value="public" checked>
+                                            <label for="public">
+                                                <div class="option-icon">
+                                                    <i class="fas fa-globe"></i>
+                                                </div>
+                                                <div class="option-info">
+                                                    <h4>IP Pública</h4>
+                                                    <p>Accesible desde Internet</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="network-option">
+                                            <input type="radio" name="network-type" id="private" value="private">
+                                            <label for="private">
+                                                <div class="option-icon">
+                                                    <i class="fas fa-lock"></i>
+                                                </div>
+                                                <div class="option-info">
+                                                    <h4>Solo Red Privada</h4>
+                                                    <p>Sin acceso desde Internet</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="network-section">
+                                    <h3>Ancho de Banda</h3>
+                                    <div class="bandwidth-slider">
+                                        <div class="slider-container">
+                                            <input type="range" min="1" max="10" value="2" class="slider" id="bandwidth-slider">
+                                            <div class="slider-labels">
+                                                <span>1 Gbps</span>
+                                                <span>2.5 Gbps</span>
+                                                <span>5 Gbps</span>
+                                                <span>7.5 Gbps</span>
+                                                <span>10 Gbps</span>
+                                            </div>
+                                        </div>
+                                        <span class="resource-value">2 Gbps</span>
+                                    </div>
+                                </div>
+                                <div class="network-section">
+                                    <h3>Firewall</h3>
+                                    <div class="firewall-toggle">
+                                        <label class="switch">
+                                            <input type="checkbox" id="firewall-toggle" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>Activar Firewall</span>
+                                    </div>
+                                    <div class="firewall-rules">
+                                        <div class="rule-header">
+                                            <h4>Reglas de Firewall</h4>
+                                            <button class="btn-text" id="add-rule">
+                                                <i class="fas fa-plus"></i> Añadir Regla
+                                            </button>
+                                        </div>
+                                        <div class="rule-list">
+                                            <div class="rule-item">
+                                                <div class="rule-info">
+                                                    <span class="rule-protocol">TCP</span>
+                                                    <span class="rule-port">22 (SSH)</span>
+                                                    <span class="rule-source">Cualquier IP</span>
+                                                </div>
+                                                <div class="rule-actions">
+                                                    <button class="action-btn" title="Editar">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="action-btn" title="Eliminar">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="rule-item">
+                                                <div class="rule-info">
+                                                    <span class="rule-protocol">TCP</span>
+                                                    <span class="rule-port">80, 443 (HTTP/S)</span>
+                                                    <span class="rule-source">Cualquier IP</span>
+                                                </div>
+                                                <div class="rule-actions">
+                                                    <button class="action-btn" title="Editar">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="action-btn" title="Eliminar">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-panel" data-panel="4">
+                            <h2>Configura la Seguridad</h2>
+                            <div class="security-config">
+                                <div class="security-section">
+                                    <h3>Método de Autenticación</h3>
+                                    <div class="auth-options">
+                                        <div class="auth-option">
+                                            <input type="radio" name="auth-method" id="password" value="password" checked>
+                                            <label for="password">
+                                                <div class="option-icon">
+                                                    <i class="fas fa-key"></i>
+                                                </div>
+                                                <div class="option-info">
+                                                    <h4>Contraseña</h4>
+                                                    <p>Autenticación con usuario y contraseña</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="auth-option">
+                                            <input type="radio" name="auth-method" id="ssh-key" value="ssh-key">
+                                            <label for="ssh-key">
+                                                <div class="option-icon">
+                                                    <i class="fas fa-fingerprint"></i>
+                                                </div>
+                                                <div class="option-info">
+                                                    <h4>Llave SSH</h4>
+                                                    <p>Autenticación con llave pública/privada</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="security-section password-section">
+                                    <h3>Configuración de Contraseña</h3>
+                                    <div class="form-group">
+                                        <label for="root-password">Contraseña de Root</label>
+                                        <div class="input-icon">
+                                            <i class="fas fa-lock"></i>
+                                            <input type="password" id="root-password" name="root-password" placeholder="Ingresa una contraseña segura">
+                                            <button type="button" class="toggle-password">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirmar Contraseña</label>
+                                        <div class="input-icon">
+                                            <i class="fas fa-lock"></i>
+                                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirma tu contraseña">
+                                            <button type="button" class="toggle-password">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="password-strength">
+                                        <div class="strength-meter">
+                                            <div class="strength-segment"></div>
+                                            <div class="strength-segment"></div>
+                                            <div class="strength-segment"></div>
+                                            <div class="strength-segment"></div>
+                                        </div>
+                                        <span class="strength-text">Débil</span>
+                                    </div>
+                                </div>
+                                <div class="security-section ssh-section" style="display: none;">
+                                    <h3>Llave SSH</h3>
+                                    <div class="form-group">
+                                        <label for="ssh-key-input">Llave Pública SSH</label>
+                                        <textarea id="ssh-key-input" name="ssh-key-input" placeholder="Pega tu llave pública SSH aquí"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn-secondary">
+                                            <i class="fas fa-upload"></i> Subir Archivo de Llave
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="security-section">
+                                    <h3>Opciones Adicionales</h3>
+                                    <div class="security-options">
+                                        <div class="option-checkbox">
+                                            <input type="checkbox" id="auto-updates" name="auto-updates" checked>
+                                            <label for="auto-updates">Activar actualizaciones automáticas de seguridad</label>
+                                        </div>
+                                        <div class="option-checkbox">
+                                            <input type="checkbox" id="backup-enabled" name="backup-enabled" checked>
+                                            <label for="backup-enabled">Habilitar backups automáticos semanales</label>
+                                        </div>
+                                        <div class="option-checkbox">
+                                            <input type="checkbox" id="monitoring" name="monitoring" checked>
+                                            <label for="monitoring">Activar monitoreo de seguridad</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-panel" data-panel="5">
+                            <h2>Resumen de Configuración</h2>
+                            <div class="summary-container">
+                                <div class="summary-section">
+                                    <h3>Sistema Operativo</h3>
+                                    <div class="summary-item">
+                                        <div class="summary-icon">
+                                            <img src="img/ubuntu-logo.svg" alt="Ubuntu" id="summary-os-icon">
+                                        </div>
+                                        <div class="summary-info">
+                                            <h4 id="summary-os-name">Ubuntu</h4>
+                                            <p id="summary-os-version">22.04 LTS</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary-section">
+                                    <h3>Recursos</h3>
+                                    <div class="summary-resources">
+                                        <div class="summary-resource">
+                                            <div class="resource-icon">
+                                                <i class="fas fa-microchip"></i>
+                                            </div>
+                                            <div class="resource-info">
+                                                <h4>CPU</h4>
+                                                <p id="summary-cpu">2 vCPUs</p>
+                                            </div>
+                                        </div>
+                                        <div class="summary-resource">
+                                            <div class="resource-icon">
+                                                <i class="fas fa-memory"></i>
+                                            </div>
+                                            <div class="resource-info">
+                                                <h4>Memoria</h4>
+                                                <p id="summary-ram">4 GB</p>
+                                            </div>
+                                        </div>
+                                        <div class="summary-resource">
+                                            <div class="resource-icon">
+                                                <i class="fas fa-hdd"></i>
+                                            </div>
+                                            <div class="resource-info">
+                                                <h4>Almacenamiento</h4>
+                                                <p id="summary-storage">80 GB SSD</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary-section">
+                                    <h3>Red y Seguridad</h3>
+                                    <div class="summary-network">
+                                        <div class="summary-item">
+                                            <div class="summary-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+                                            <div class="summary-info">
+                                                <h4>Conectividad</h4>
+                                                <p id="summary-network">IP Pública</p>
+                                            </div>
+                                        </div>
+                                        <div class="summary-item">
+                                            <div class="summary-icon">
+                                                <i class="fas fa-shield-alt"></i>
+                                            </div>
+                                            <div class="summary-info">
+                                                <h4>Firewall</h4>
+                                                <p id="summary-firewall">Activado (2 reglas)</p>
+                                            </div>
+                                        </div>
+                                        <div class="summary-item">
+                                            <div class="summary-icon">
+                                                <i class="fas fa-key"></i>
+                                            </div>
+                                            <div class="summary-info">
+                                                <h4>Autenticación</h4>
+                                                <p id="summary-auth">Contraseña</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary-section">
+                                    <h3>Costo Estimado</h3>
+                                    <div class="cost-summary">
+                                        <div class="cost-item">
+                                            <span>Costo por hora:</span>
+                                            <span id="hourly-cost">$0.08</span>
+                                        </div>
+                                        <div class="cost-item">
+                                            <span>Costo mensual estimado:</span>
+                                            <span id="monthly-cost">$59.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vm-name-section">
+                                    <h3>Nombre de la Máquina Virtual</h3>
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="fas fa-server"></i>
+                                            <input type="text" id="vm-name" name="vm-name" placeholder="Ingresa un nombre para tu VM" value="my-ubuntu-server">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-actions">
+                        <button class="btn-secondary" id="prev-step" disabled>Anterior</button>
+                        <button class="btn-primary" id="next-step">Siguiente</button>
+                        <button class="btn-primary" id="create-vm" style="display: none;">Crear Máquina Virtual</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>VirtuaSys<span>Solutions</span></h2>
+                <p>Soluciones de virtualización para el mundo moderno</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                        <li><a href="#">Equipo</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="planes.html">Planes VPS</a></li>
+                        <li><a href="crear-maquina.html">Máquinas Virtuales</a></li>
+                        <li><a href="backups.html">Backups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contacto@virtuasys.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +52 8714184971</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Torreón Coah, México</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VirtuaSys Solutions. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/create-vm.js"></script>
+</body>
+</html>

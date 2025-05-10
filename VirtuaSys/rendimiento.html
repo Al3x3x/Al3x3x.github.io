@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimiento - VirtuaSys Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>VirtuaSys<span>Solutions</span></h1>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="rendimiento.html" class="active">Rendimiento</a></li>
+                <li><a href="crear-maquina.html">Crear VM</a></li>
+                <li><a href="backups.html">Backups</a></li>
+                <li><a href="login.html" class="btn-login">Iniciar Sesión</a></li>
+                <li><a href="signup.html" class="btn-signup">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <h1>Monitoreo de Rendimiento</h1>
+                <p>Visualiza y analiza el rendimiento de tus máquinas virtuales</p>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <div class="dashboard-header">
+                <h2>Panel de Control</h2>
+                <div class="dashboard-actions">
+                    <div class="time-selector">
+                        <button class="time-btn active" data-time="day">Día</button>
+                        <button class="time-btn" data-time="week">Semana</button>
+                        <button class="time-btn" data-time="month">Mes</button>
+                    </div>
+                    <button class="btn-secondary refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <div class="dashboard-overview">
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Máquinas Virtuales</h3>
+                        <p class="overview-value">5</p>
+                        <p class="overview-status up">Todas activas</p>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>CPU Promedio</h3>
+                        <p class="overview-value">32%</p>
+                        <p class="overview-status normal">Normal</p>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Memoria Promedio</h3>
+                        <p class="overview-value">45%</p>
+                        <p class="overview-status normal">Normal</p>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Almacenamiento</h3>
+                        <p class="overview-value">68%</p>
+                        <p class="overview-status warning">Atención</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Uso de CPU</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #8a2be2;"></span>
+                                <span>Actual</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #e0b0ff;"></span>
+                                <span>Promedio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <canvas id="cpuChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Uso de Memoria</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #ff69b4;"></span>
+                                <span>Actual</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #ffb6c1;"></span>
+                                <span>Promedio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Tráfico de Red</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #4b0082;"></span>
+                                <span>Entrada</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #9370db;"></span>
+                                <span>Salida</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <canvas id="networkChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Operaciones de Disco</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #da70d6;"></span>
+                                <span>Lectura</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #ee82ee;"></span>
+                                <span>Escritura</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <canvas id="diskChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vm-list">
+                <div class="vm-list-header">
+                    <h3>Mis Máquinas Virtuales</h3>
+                    <div class="vm-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar máquina...">
+                    </div>
+                </div>
+                <div class="vm-table-container">
+                    <table class="vm-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Sistema</th>
+                                <th>CPU</th>
+                                <th>Memoria</th>
+                                <th>Almacenamiento</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="vm-name">
+                                        <i class="fas fa-server"></i>
+                                        <span>web-server-01</span>
+                                    </div>
+                                </td>
+                                <td>Ubuntu 22.04</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 45%"></div>
+                                        <span>45%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 60%"></div>
+                                        <span>60%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%"></div>
+                                        <span>75%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge running">Activo</span></td>
+                                <td>
+                                    <div class="vm-actions">
+                                        <button class="action-btn" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Reiniciar">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button class="action-btn" title="Apagar">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vm-name">
+                                        <i class="fas fa-server"></i>
+                                        <span>db-server-01</span>
+                                    </div>
+                                </td>
+                                <td>CentOS 8</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 30%"></div>
+                                        <span>30%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 50%"></div>
+                                        <span>50%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 65%"></div>
+                                        <span>65%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge running">Activo</span></td>
+                                <td>
+                                    <div class="vm-actions">
+                                        <button class="action-btn" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Reiniciar">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button class="action-btn" title="Apagar">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vm-name">
+                                        <i class="fas fa-server"></i>
+                                        <span>dev-env-01</span>
+                                    </div>
+                                </td>
+                                <td>Windows Server 2022</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 20%"></div>
+                                        <span>20%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 35%"></div>
+                                        <span>35%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 50%"></div>
+                                        <span>50%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge running">Activo</span></td>
+                                <td>
+                                    <div class="vm-actions">
+                                        <button class="action-btn" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Reiniciar">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button class="action-btn" title="Apagar">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vm-name">
+                                        <i class="fas fa-server"></i>
+                                        <span>test-server-01</span>
+                                    </div>
+                                </td>
+                                <td>Debian 11</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 15%"></div>
+                                        <span>15%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 25%"></div>
+                                        <span>25%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 40%"></div>
+                                        <span>40%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge running">Activo</span></td>
+                                <td>
+                                    <div class="vm-actions">
+                                        <button class="action-btn" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Reiniciar">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button class="action-btn" title="Apagar">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vm-name">
+                                        <i class="fas fa-server"></i>
+                                        <span>backup-server-01</span>
+                                    </div>
+                                </td>
+                                <td>Ubuntu 20.04</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 10%"></div>
+                                        <span>10%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 20%"></div>
+                                        <span>20%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                        <span>85%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge running">Activo</span></td>
+                                <td>
+                                    <div class="vm-actions">
+                                        <button class="action-btn" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Reiniciar">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button class="action-btn" title="Apagar">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="vm-pagination">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="alerts-section">
+                <div class="alerts-header">
+                    <h3>Alertas y Notificaciones</h3>
+                    <button class="btn-text">Ver todas</button>
+                </div>
+                <div class="alerts-list">
+                    <div class="alert-item warning">
+                        <div class="alert-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>Almacenamiento alto</h4>
+                            <p>El servidor backup-server-01 está utilizando más del 80% de su almacenamiento.</p>
+                            <span class="alert-time">Hace 35 minutos</span>
+                        </div>
+                        <button class="alert-action">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="alert-item info">
+                        <div class="alert-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>Mantenimiento programado</h4>
+                            <p>Se realizará mantenimiento en el centro de datos el 15/10/2025 de 2:00 AM a 4:00 AM.</p>
+                            <span class="alert-time">Hace 2 horas</span>
+                        </div>
+                        <button class="alert-action">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="alert-item success">
+                        <div class="alert-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>Backup completado</h4>
+                            <p>El backup semanal de todas las máquinas virtuales se ha completado exitosamente.</p>
+                            <span class="alert-time">Hace 5 horas</span>
+                        </div>
+                        <button class="alert-action">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+  <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>VirtuaSys<span>Solutions</span></h2>
+                <p>Soluciones de virtualización para el mundo moderno</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                        <li><a href="#">Equipo</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="planes.html">Planes VPS</a></li>
+                        <li><a href="crear-maquina.html">Máquinas Virtuales</a></li>
+                        <li><a href="backups.html">Backups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contacto@virtuasys.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +52 8714184971</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Torreón Coah, México</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VirtuaSys Solutions. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
